@@ -86,13 +86,13 @@ user@ubuntu:~/your_ws$ roslaunch turtlebot3_line_follower line_follower.launch s
 # add
 install dependency
 ```
-pip install opencv-python
+sudo apt install python3-pip python3-all-dev python3-rospkg
+sudo apt install ros-melodic-desktop-full --fix-missing
+sudo apt install opencv-python
 python3 -m pip install --upgrade pip
 python3 -m pip install cython
 python3 -m pip install opencv-python
 python3 -m pip install opencv-contrib-python
-sudo apt install python3-pip python3-all-dev python3-rospkg
-sudo apt install ros-melodic-desktop-full --fix-missing
 sudo apt-get install libgl1-mesa-glx
 export LIBGL_ALWAYS_SOFTWARE=1
 sudo apt-get install ros-melodic-turtlebot3-description
