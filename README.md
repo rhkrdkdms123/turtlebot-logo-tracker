@@ -88,7 +88,8 @@ install dependency
 ```
 sudo apt install python3-pip python3-all-dev python3-rospkg
 sudo apt install ros-melodic-desktop-full --fix-missing
-sudo apt install python3-opencv
+sudo apt-get update
+sudo apt-get install libopencv-dev python3-opencv
 python3 -m pip install --upgrade pip
 python3 -m pip install cython
 python3 -m pip install opencv-python
