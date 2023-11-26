@@ -7,6 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   sensor_msgs
   geometry_msgs
+  message_generation
 )
 
 ## Generate added messages and services with any dependencies listed here
