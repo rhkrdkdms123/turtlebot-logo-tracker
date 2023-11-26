@@ -79,9 +79,9 @@ class LineDetector:
         mask = features.detectFeatures(self.blurred_hsv, train_features)
         # mask = cv2.inRange(self.blurred_hsv, lower, upper)
 
-        # search_y = int(self.height*2/5)
-        # mask[:search_y, ] = 0
-        # moments = cv2.moments(mask)
+        search_y = int(self.height*2/5)
+        mask[:search_y, ] = 0
+        moments = cv2.moments(mask)
 
         try:
             cx = int(moments['m10']/moments['m00'])
