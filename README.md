@@ -92,7 +92,6 @@ sudo apt-get update
 sudo apt-get install libopencv-dev python3-opencv
 python3 -m pip install --upgrade pip
 python3 -m pip install cython
-python3 -m pip install opencv-python
 python3 -m pip install opencv-contrib-python
 sudo apt-get install libgl1-mesa-glx
 export LIBGL_ALWAYS_SOFTWARE=1
