@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 # ROS package (python)
 import rospy
@@ -32,6 +32,7 @@ class Follower:
             self.detector.video_writer.write(self.detector.video_data[i])
 
     def camera_callback(self, msg):
+        rospy.loginfo("got the topic camera/image")
         direction = self.detector.get_direction(message=msg, line_color='red', tol=15)
         self.motion_planner.move(direction)
 
