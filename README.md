@@ -1,4 +1,4 @@
-# TurtleBot3 Line Follower
+# TurtleBot3 Logo Follower
 
 This ROS Melodic project simulates (in Gazebo environment) or executes in real life a simple logo follower module for TurtleBot3. The control of the robot is performed using the input of its real-time camera where vibrant colors (in order to make a difference from other colors in the environment) are detected. It also enables to record the robot camera with and without the detection bounding rectangle shown below.
 
