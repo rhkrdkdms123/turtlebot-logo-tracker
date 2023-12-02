@@ -17,18 +17,6 @@ numpy
 catkin
 `
 
-## World
-
-In order to perform the simulation, a maze-like world was created. This world contains some basic walls and a red path to follow as seen below.
-
-<br>
-
-<p align="center">
-  <img width="60%" src="./assets/world.png"/>
-</p>
-
-<br>
-
 ## How does it work?
 
 Image processing techniques are performed from the images obtained from the robot camera, and the output is shown in the screen when executing the module. The image is scanned and processed calculating the Center Of Gravity (COG) of the detected colors in order to make decisions:
@@ -51,7 +39,7 @@ user@ubuntu:~/your_ws$ cd src
 After creating your workspace directory you are ready to go. Clone this directory into your _src_ folder and build it using Catkin building packages. Run the next commands in your terminal:
 
 ```console
-user@ubuntu:~/your_ws/src$ git clone https://github.com/rhkrdkdms123/turtlebot_logo_tracker.git
+user@ubuntu:~/your_ws/src$ git clone https://github.com/rhkrdkdms123/turtlebot-logo-tracker.git
 user@ubuntu:~/your_ws/src$ cd ..
 user@ubuntu:~/your_ws$ catkin build
 ```
@@ -86,13 +74,8 @@ user@ubuntu:~/your_ws$ roslaunch turtlebot3_line_follower line_follower.launch s
 # add
 install dependency
 ```
-sudo apt install python3-pip python3-all-dev python3-rospkg
-sudo apt install ros-melodic-desktop-full --fix-missing
+sudo apt-get install ros-melodic-cv-bridge
 sudo apt-get update
-sudo apt-get install libopencv-dev python3-opencv
-python3 -m pip install --upgrade pip
-python3 -m pip install cython
-python3 -m pip install opencv-contrib-python
 sudo apt-get install libgl1-mesa-glx
 export LIBGL_ALWAYS_SOFTWARE=1
 sudo apt-get install ros-melodic-turtlebot3-description
