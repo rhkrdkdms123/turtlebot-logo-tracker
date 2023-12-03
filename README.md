@@ -93,7 +93,7 @@ Example of command line used to simulate in Gazebo environment and recording the
 user@ubuntu:~/your_ws$ roslaunch turtlebot3_line_follower line_follower.launch sim:=true rec:=true
 ```
 
-## Publish image node in your turtlebot
+## Publish image topic on your turtlebot
 Here is an example.
 ```
 cd catkin_ws
