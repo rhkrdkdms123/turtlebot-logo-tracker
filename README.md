@@ -25,6 +25,26 @@ Image processing techniques are performed from the images obtained from the robo
 * Right COG: turn right
 * No detection: stop
 
+## install dependency
+```
+sudo apt-get install ros-melodic-cv-bridge
+sudo apt-get update
+sudo apt-get install libgl1-mesa-glx
+export LIBGL_ALWAYS_SOFTWARE=1
+sudo apt-get install ros-melodic-turtlebot3-description
+sudo apt install python-catkin-tools
+```
+
+## edit bashrc
+```
+sudo nano ~/.bashrc
+```
+
+add following command
+```
+export LIBGL_ALWAYS_SOFTWARE=1
+```
+
 ## Build
 
 If you have no workspace directory, create one using the next comands in your command line:
@@ -51,6 +71,8 @@ Once your _src_ folder is build, the package is ready to use. To simply launch t
 ```console
 user@ubuntu:~/your_ws$ roslaunch turtlebot3_line_follower line_follower.launch
 ```
+If roscore is already running, you need to shut it down before launching.
+
 
 However, in order to make a more complex launch of the module, some arguments can be added. In this case, the arguments are related to the simulation environment (Gazebo), recording and position/orientation of the TurtleBot3.
 
@@ -71,23 +93,13 @@ Example of command line used to simulate in Gazebo environment and recording the
 user@ubuntu:~/your_ws$ roslaunch turtlebot3_line_follower line_follower.launch sim:=true rec:=true
 ```
 
-# add
-install dependency
+## Publish image node in your turtlebot
+Here is an example.
 ```
-sudo apt-get install ros-melodic-cv-bridge
-sudo apt-get update
-sudo apt-get install libgl1-mesa-glx
-export LIBGL_ALWAYS_SOFTWARE=1
-sudo apt-get install ros-melodic-turtlebot3-description
-sudo apt install python-catkin-tools
+cd catkin_ws
+catkin_make
+source devel/setup.bash
+roslaunch vision imshow.launch
 ```
-
-edit bashrc
-```
-sudo nano ~/.bashrc
-```
-
-add following command
-```
-export LIBGL_ALWAYS_SOFTWARE=1
-```
+the launch file "imshow.launch" lauch the node that publish "camera/image" topic.
+Make sure the camera connected on turtlebot available.
