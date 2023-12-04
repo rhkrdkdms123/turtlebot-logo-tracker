@@ -103,3 +103,22 @@ roslaunch vision imshow.launch
 ```
 the launch file "imshow.launch" lauch the node that publish "camera/image" topic.
 Make sure the camera connected on turtlebot available.
+
+## Raspicam setting
+If Raspberry Camera recognition is not possible, execute the following commands.
+
+Let's check if the Pi Camera is properly connected. If both the 'supported' and 'detected' values are 1, the camera connection has been successfully established.
+```
+vcgencmd get_camera
+```
+
+Load the bcm2835-v4l2 module into the kernel using the modprobe command.
+```
+sudo modprobe bcm2835-v4l2
+```
+
+And then, check the video*.
+```
+ ls /dev/video*
+```
+Use one of the outputs as the video index.
