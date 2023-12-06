@@ -1,6 +1,6 @@
 # TurtleBot3 Logo Follower
 
-This ROS Melodic project simulates (in Gazebo environment) or executes in real life a simple logo follower module for TurtleBot3. The control of the robot is performed using the input of its real-time camera where vibrant colors (in order to make a difference from other colors in the environment) are detected. It also enables to record the robot camera with and without the detection bounding rectangle shown below.
+This ROS Melodic project simulates (in Gazebo environment) or executes in real life a simple logo follower module for TurtleBot3. The control of the robot is performed using the input of its real-time camera where logo images are detected. It also enables to record the robot camera with and without the detection bounding rectangle shown below.
 
 All recordings are stored in _recordings_ directory, saving two files:
 1. Raw camera view without editions: _raw_view.avi_
@@ -19,7 +19,7 @@ catkin
 
 ## How does it work?
 
-Image processing techniques are performed from the images obtained from the robot camera, and the output is shown in the screen when executing the module. The image is scanned and processed calculating the Center Of Gravity (COG) of the detected colors in order to make decisions:
+Image processing techniques are performed from the images obtained from the robot camera, and the output is shown in the screen when executing the module. The image is scanned and processed calculating the Center Of Gravity (COG) of the detected logo in order to make decisions:
 * Centered COG: straight
 * Left COG: turn left
 * Right COG: turn right
@@ -30,7 +30,6 @@ Image processing techniques are performed from the images obtained from the robo
 sudo apt-get install ros-melodic-cv-bridge
 sudo apt-get update
 sudo apt-get install libgl1-mesa-glx
-export LIBGL_ALWAYS_SOFTWARE=1
 sudo apt-get install ros-melodic-turtlebot3-description
 sudo apt install python-catkin-tools
 ```
@@ -43,6 +42,11 @@ sudo nano ~/.bashrc
 add following command
 ```
 export LIBGL_ALWAYS_SOFTWARE=1
+```
+
+To apply the changes, use the source command.
+```
+source ~/.bashrc
 ```
 
 ## Build
@@ -69,29 +73,10 @@ user@ubuntu:~/your_ws$ catkin build
 Once your _src_ folder is build, the package is ready to use. To simply launch the TurtleBot3 in a real life environment you can run the next command:
 
 ```console
+user@ubuntu:~/your_ws$ source devel/setup.bash
 user@ubuntu:~/your_ws$ roslaunch turtlebot3_line_follower line_follower.launch
 ```
-If roscore is already running, you need to shut it down before launching.
-
-
-However, in order to make a more complex launch of the module, some arguments can be added. In this case, the arguments are related to the simulation environment (Gazebo), recording and position/orientation of the TurtleBot3.
-
-```
-Arguments:
-  * sim: runs Gazebo simulation (default=false)
-  * rec: records raw camera view video, detection view is always recorded (default=false)
-  * x: X axis position (default=0.025)
-  * y: Y axis position (default=0)
-  * z: Z axis position (default=0)
-  * roll: roll angle orientation (default=0)
-  * pitch: pitch angle orientation (default=0)
-  * yaw: yaw angle orientation (default=1.570796)
-```
-
-Example of command line used to simulate in Gazebo environment and recording the output of the camera:
-```console
-user@ubuntu:~/your_ws$ roslaunch turtlebot3_line_follower line_follower.launch sim:=true rec:=true
-```
+if launch is sucessed, you can see the image rqt view window which shows the image from rapsicam on turtlebot.
 
 ## Publish image topic on your turtlebot
 Here is an example.
@@ -116,6 +101,7 @@ Load the bcm2835-v4l2 module into the kernel using the modprobe command.
 ```
 sudo modprobe bcm2835-v4l2
 ```
+Depending on the Raspberry Pi environment, you may need to run this command at every boot.
 
 And then, check the video*.
 ```
