@@ -1,5 +1,5 @@
 # TurtleBot3 Logo Follower
-`This project refers to John's line follower project.`
+`This project refers to Jon's line follower project.`
 
 This ROS Melodic project executes in real life a simple logo follower module for TurtleBot3. The control of the robot is performed using the input of its real-time camera where logo images are detected. It also enables to record the robot camera with and without the detection bounding rectangle shown below.
 
