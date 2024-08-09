@@ -116,3 +116,6 @@ And then, check the video*.
  ls /dev/video*
 ```
 Use one of the outputs as the video index.
+
+# Demonstration video
+https://youtu.be/Z54p1YOBkx0
